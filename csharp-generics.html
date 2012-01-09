@@ -40,7 +40,7 @@
         <p>Any reference or value type that is added to an ArrayList is implicitly upcast to Object.</p>
     </div>
 
-    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+    <div id="big" class="step" data-x="3500" data-y="3000" data-rotate="180" data-scale="6">
         <p>Both the casting and the boxing and unboxing operations decrease performance.</p>
     </div>
 
@@ -48,26 +48,47 @@
         <p>The other limitation is lack of compile-time type checking</p>
     </div>
 
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+    <div id="ing" class="step" data-x="3500" data-y="0" data-rotate="270" data-scale="6">
         <p>by Generic List, you can create a list that is not only safer than ArrayList, but also significantly faster.</p>
     </div>
 
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+    <div id="imagination" class="step" data-x="6700" data-y="-500" data-scale="6">
+        <ul>
+        <li>where T: struct</li>
+ 		<li>where T: class</li>
+ 		<li>where T: new()</li>
+ 		<li>where T: &lt;base class name&gt;</li>
+ 		<li>where T: &lt;interface name&gt;</li>
+ 		<li>where T: U</li>
+ 		<ul>
+ 		
     </div>
 
     <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
-        <p>want to know more?</p>
-        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
+        <pre>class EmployeeList&lt;T&gt; where T : Employee, 
+        						   IEmployee, 
+        						   System.IComparable&lt;T&gt;, 
+        						   new()</pre>
     </div>
 
     <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
-        <p>one more thing...</p>
-    </div>
+		<pre>
+		class Base { }
+		class Test<T, U> where U : struct
+				  where T : Base, new() { }
+    </pre>
+	</div>
 
     <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
-        <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-        <span class="footnote">* beat that, prezi ;)</span>
+        <pre>
+        class List&lt;T&gt;
+	{
+    	void Add&lt;U&gt;(List&lt;U&gt; items) where U : T {/*...*/}
+	}
+
+	//Type parameter V is used as a type constraint.
+	publicclass SampleClass<T, U, V> where T : V { }
+        </pre>
     </div>
 
     <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
